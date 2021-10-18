@@ -1,0 +1,46 @@
+name: Send mail on PR
+on:
+  pull_request:
+    types: [opened]
+jobs:
+  send_mail:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+
+      - name: Get pull request number #️⃣
+        id: pull_request_number
+        run: |
+          PULL_REQUEST_NUMBER=${GITHUB_REF/refs\/pull\//}
+          PULL_REQUEST_NUMBER="${PULL_REQUEST_NUMBER//'/merge'/''}"
+          echo ::set-output name=content::$PULL_REQUEST_NUMBER
+
+      - name: Create mail body 📝
+        run: |
+          MY_STRING=$(cat << EOF
+          New Pull Request to Review on ${{ github.repository }}
+
+          https://github.com/${{ github.repository }}/pull/${{ steps.pull_request_number.outputs.content }}
+
+          EOF
+          )
+          MY_STRING="${MY_STRING//'%'/'%25'}"
+          MY_STRING="${MY_STRING//$'\n'/'%0A'}"
+          MY_STRING="${MY_STRING//$'\r'/'%0D'}"
+          echo "::set-output name=content::$MY_STRING"
+        id: mail_body
+
+      - name: Send mail 📧
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ secrets.MAIL_HOST }}
+          server_port: ${{ secrets.MAIL_PORT }}
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: ${{ github.event.pull_request.title }}
+          to: ${{ secrets.MAIL_TO_ADDRESS }}
+          from: netcup Community
+          secure: false
+          body: ${{ steps.mail_body.outputs.content }}
+          ignore_cert: true
