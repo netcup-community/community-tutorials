@@ -18,12 +18,12 @@
    - Make sure your tutorial is new to the collection. In case it's not, have a look if it would be a valid expansion of an existing tutorial. In case you found one, don't hesitate to reach out to us.
 # How To
 1) Fork the project
-1) Add your tutorial folder: mkdir -p community-tutorials/this-is-a-tutorial  
-1) Add the templates: cat tutorial-template.md > community-tutorials/this-is-a-tutorial/01-en.md File/Ordner
-1) Write the content (using the contribution-template) Link
+1) Add your tutorial folder: `mkdir -p community-tutorials/this-is-a-tutorial`  
+1) Add the templates: `cat TEMPLATE.md > community-tutorials/this-is-a-tutorial/01-en.md` 
+1) Write the content (using the [template](https://github.com/netcup-community/community-tutorials/blob/main/TEMPLATE.md)) 
 1) Create a pull request and include the following in your request:
 
-I have read and understood the Contributor's Certificate of Origin and I hereby certify that I meet the contribution criteria described in it. 
+I have read and understood the Contributor's Certificate of Origin at the end of the [template](https://github.com/netcup-community/community-tutorials/blob/main/TEMPLATE.md) and I hereby certify that I meet the contribution criteria described in it. 
 
 Signed-off-by: (Submitter´s name and email address)
 
@@ -65,7 +65,7 @@ document.getElementById("tutorial").innerHTML = "The value of z is " + z + ".";
 ```
 
 # Template
-For all of this we provided a template for you
+For all of this we provided a template for you. See https://github.com/netcup-community/community-tutorials/blob/main/TEMPLATE.md
 
 It includes:
 

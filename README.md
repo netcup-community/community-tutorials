@@ -2,7 +2,7 @@
 Community contributed tutorials about what can be done with netcup products and services.
 
 ## Contribution Guidelines
-Please make sure to follow the Tutorial Guidelines if you want to contribute a tutorial.
+Please make sure to follow the [Contribution Guidelines](https://github.com/netcup-community/community-tutorials/blob/main/CONTRIBUTING.md) if you want to contribute a tutorial.
 Once done, open a Pull Request. A Repository Maintainer will review your tutorial and either accept it or get back to you with feedback.
 
 ## Rewards
@@ -17,7 +17,7 @@ Once done, open a Pull Request. A Repository Maintainer will review your tutoria
 3) Once 25 tutorials have been published by 25 different users, every following tutorial published will be awarded with €60,- netcup vouchers.
 
 ## Support
-If you need help with a specific tutorial, reach out to the contributor directly or join the netcup Forum for further questions, input and exchange.
+If you need help with a specific tutorial, reach out to the contributor directly or join the netcup Forum for further questions, input and exchange.
 
 You can also request content in the [netcup Forum](https://forum.netcup.de/).
 
