@@ -30,5 +30,5 @@ We want to thank our community for making this possible.
 MIT
 
 ## Further Information
-* The current netcup-wiki is being revised and updated. You want to support us with your contributions and get rewarded?
+*The current netcup-wiki is being revised and updated. You want to support us with your contributions and get rewarded?
 For more information, please stay tuned in the [netcup Forum](https://forum.netcup.de/).
