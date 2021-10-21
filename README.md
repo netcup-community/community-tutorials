@@ -6,7 +6,7 @@ Please make sure to follow the [Contribution Guidelines](https://github.com/netc
 Once done, open a Pull Request. A Repository Maintainer will review your tutorial and either accept it or get back to you with feedback.
 
 ## Rewards
- If your tutorial is accepted, you will receive an E-Mail to the address you provide in your GitHub account, asking for your netcup customer-ID in order to process your reward.
+ If your tutorial is accepted, you will receive an E-Mail (sent from our name@anexia-it.com addresses) to the address you provide in your GitHub account, asking for your netcup customer-ID in order to process your reward.
 
 1) Rewards are solely granted in the form of netcup vouchers, exclusively for published tutorials.
 
