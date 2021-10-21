@@ -24,7 +24,7 @@ Please describe the actual steps users will be taking.
 
 Make sure to not skip any step, no matter how self-explanatory they seem to you and to always build on the previous one all the way to the final step.
 
-Feel free to include screenshots, to show exactly what the user should be seeing. Please upload images to [anx.io](https://anx.io/) and link them. 
+Feel free to include screenshots, to show exactly what the user should be seeing. Please provide images in a separate folder named `images`. 
 
 The final amount of steps will depend entirely on how long and/or complicated your tutorial is.
 
