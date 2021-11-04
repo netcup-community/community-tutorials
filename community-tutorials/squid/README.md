@@ -1,0 +1,120 @@
+---
+title: Squid HTTP Proxy on Debian 10/11
+description: How to install a Squid HTTP-Proxy on Debian Server
+updated_at: 2021-11-04
+slug: install-squid-http-proxy-debian
+author_name: Jonas Löchner
+author_url: https://sancraft.dev/
+author_image: https://secure.gravatar.com/avatar/a73d7947f9c03549668cddf5b2bf6522?s=1700
+author_bio: -
+tags: debian, proxy, squid, squid3, http, buster, bullseye
+netcup_product_url: https://netcup.de/bestellen/produkt.php?produkt=2623
+language: en
+available_languages: en
+---
+
+# Introduction
+This tutorial will show you, how you can install the HTTP proxy squid on your Debian server "RS 2000" and how you can connect to the proxy, from almost any client. <br>
+This is an advenced version of https://github.com/SanCraftDev/Debian-Setup/blob/main/README.md#Squid-HTTP-Proxy---with-Password-Authentication
+
+# Requirements
+You need a Debian Server with an Internet Connection, which is accessible from the internet ​over a static IP or over a DynDNS address on Port 8449. You also need root permissions on your server.
+
+# Step 1 - Installing Squid
+First we are going to update the system, and then we are going to install the squid HTTP proxy.
+```sh
+apt update && apt upgrade -y && apt autoremove -y
+apt install squid squid3 -y
+```
+
+# Step 1.1 - Inserting the configuration
+Now we need to insert a configuration to the squid proxy. <br>
+This Configuration allows connecting to the HTTP proxy using a username and a password, it is setting the port to 8449 and makes your origin IP invisible for the Web servers you visit.
+```sh
+curl -L -o /etc/squid/squid.conf https://raw.githubusercontent.com/2020Sanoj/community-tutorials/main/community-tutorials/squid/configs/squid.conf
+```
+
+## Step 1.2 - Creating users
+Now we need to create users, so that they can access the proxy. <br>
+Please replace "USERNAME" in the next command with an actual Username, which you want to use to log in to the proxy with a password.
+```sh
+htpasswd -c /etc/squid/passwords USERNAME
+```
+Now enter a new secure Password. <br>
+Repeat this step how often you want for new users, which should be able to use this proxy.
+
+## Step 1.3 - Starting Squid
+To enable the inserted configuration, we need to restart the squid proxy, to do this, simply run: <br>
+The restart may take a while.
+```sh
+service squid restart
+```
+
+# Step 2 - Setting up the devices
+
+## Step 2.1 - Windows 11
+Open your settings app and go to "network and internet" <br>
+Select Proxy and now select under "Manual proxy setup" the "Set up" Button right from "Use a proxy server" <br>
+Now enabled "Use a proxy server" now enter under "Proxy IP address" the IP address or the DynDNS address of your proxy server and under "Port" the port "8449" <br>
+Now activate the Checkbox "Don't use the proxy server for local (intranet) addresses" <br>
+Now you can click the Button "Save" <br>
+Now you will sometimes be asked for one of the username and the password of this username, which we created in step 1.2
+
+## Step 2.2 - Windows 10
+Open your settings app and go to "network and internet" <br>
+Select Proxy and now activate under "Manual proxy setup" the "use proxy server" <br>
+Now enter under "address" the IP address or the DynDNS address of your proxy server and under "Port" the port "8449" <br>
+Now activate the Checkbox "Don't use the proxy server for local (intranet) addresses" <br>
+Now you can click the Button "Save" <br>
+Now you will sometimes be asked for one of the username and the password of this username, which we created in step 1.2
+
+## Step 2.3 - Android
+Go to in your settings app and go to your Wi-Fi settings. <br>
+Press your Wi-Fi network for some time and select "change" or "settings" or if there is something like a settings button direct shown on your connected Wi-Fi network press this button <br>
+Now click on "show more" and select proxy, here select "manual" <br>
+Now enter under "address" or "hostname" the IP address or the DynDNS address of your proxy server and under "Port" the port "8449" <br>
+Now you can click the Button "Save" <br>
+Now you will sometimes be asked for one of the username and the password of this username, which we created in step 1.2
+
+## Step 2.4 - IOS - iPadOS
+Go to in your settings app and go to your Wi-Fi settings. <br>
+Press your Wi-Fi network and now select "configure proxy", now select "manual" <br>
+Now enter under "server" the IP address or the DynDNS address of your proxy server and under "Port" the port "8449" <br>
+Now activate the Checkbox "Authentication" and enter your username and the password of this username, which we created in step 1.2 <br>
+Now you can click the upper Button, "Save"
+
+## Step 2.5 - macOS
+Go to your Settings and select "network", there select your Ethernet or Wi-Fi network <br>
+There select "advanced" and now "Proxies", here select "Web Proxy (HTTP)" and "Secure Web Proxy (HTTPS)" <br>
+Now enter your IP address or the DynDNS address of your proxy server and the port "8449" <br>
+Now activate the Checkbox "Proxy server requires password" and now enter your username and the password of this username, which we created in step 1.2 <br>
+Now click "Ok" and then "apply"
+
+## Step 2.4 - Linux
+Run: `sudo nano /etc/environment` <br>
+And add there the following and replace your username and the password of this username, which we created in step 1.2 and replace "hostname" with the IP address or the DynDNS address of your proxy server and  "port" with the port "8449":
+```sh
+http_proxy="http://<username>:<password>@<hostname>:<port>/"
+https_proxy="http://<username>:<password>@<hostname>:<port>/"
+no_proxy="localhost,127.0.0.1,::1"
+```
+
+# Conclusion
+Now you have set up a squid HTTP proxy with username and password protection. And have connected your devices with this proxy.
+This is an advenced version of https://github.com/SanCraftDev/Debian-Setup/blob/main/README.md#Squid-HTTP-Proxy---with-Password-Authentication
+
+# License
+MIT
+
+# Contributor's Certificate of Origin
+Contributor's Certificate of Origin By making a contribution to this project, I certify that:
+
+ 1) The contribution was created in whole or in part by me and I have the right to submit it under the license indicated in the file; or
+
+ 2) The contribution is based upon previous work that, to the best of my knowledge, is covered under an appropriate license and I have the right under that license to submit that work with modifications, whether created in whole or in part by me, under the same license (unless I am permitted to submit under a different license), as indicated in the file; or
+
+ 3) The contribution was provided directly to me by some other person who certified (a), (b) or (c) and I have not modified it.
+
+ 4) I understand and agree that this project and the contribution are public and that a record of the contribution (including all personal information I submit with it, including my sign-off) is maintained indefinitely and may be redistributed consistent with this project or the license(s) involved.
+
+Signed-off-by: Jonas Löchner | [admin@san0j.de](mailto:admin@san0j.de)
