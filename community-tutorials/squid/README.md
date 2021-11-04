@@ -100,7 +100,7 @@ no_proxy="localhost,127.0.0.1,::1"
 ```
 
 # Conclusion
-Now you have set up a squid HTTP proxy with username and password protection. And have connected your devices with this proxy.
+Now you have set up a squid HTTP proxy with username and password protection. And have connected your devices with this proxy. <br>
 This is an advenced version of https://github.com/SanCraftDev/Debian-Setup/blob/main/README.md#Squid-HTTP-Proxy---with-Password-Authentication
 
 # License
