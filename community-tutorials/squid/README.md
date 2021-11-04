@@ -18,11 +18,13 @@ This tutorial will show you, how you can install the HTTP proxy squid on your De
 This is an advenced version of https://github.com/SanCraftDev/Debian-Setup/blob/main/README.md#Squid-HTTP-Proxy---with-Password-Authentication
 
 # Requirements
-You need a Debian Server with an Internet Connection, which is accessible from the internet ​over a static IP or over a DynDNS address on Port 8449. You also need root permissions on your server.
+You need a Debian Server with an Internet Connection, which is accessible from the internet over a static IP or over a DynDNS address on Port 8449. You also need root permissions on your server.
 
 # Step 1 - Installing Squid
-First we are going to update the system, and then we are going to install the squid HTTP proxy.
+First you need to connect to your server over ssh.
+Then we are going to switch to the root user and are going to update the system, and then we are going to install the squid HTTP proxy.
 ```sh
+sudo su
 apt update && apt upgrade -y && apt autoremove -y
 apt install squid -y
 ```
