@@ -1,7 +1,7 @@
 ---
 title: Wireguard VPN on most Linux Server
 description: How to install a Wireguard VPN Server very easy on most Linux Servers
-updated_at: 2021-11-04
+updated_at: 2021-11-05
 slug: install-wireguard-vpn-server-linux
 author_name: Jonas Löchner
 author_url: https://sancraft.dev/
@@ -19,7 +19,7 @@ Wireguard is a fast, secure and easy to use VPN Software. <br>
 This is an advenced version of https://github.com/SanCraftDev/Debian-Setup/blob/main/README.md#wireguard-vpn
 
 # Requirements
-You need a Debian Server with an Internet Connection, which is accessible from the internet ​over a static IP or over a DynDNS address on a port of your choice. You also need root permissions on your server.
+You need a Debian Server with an Internet Connection, which is accessible from the internet over a static IP or over a DynDNS address on a port of your choice. You also need root permissions on your server.
 
 # Step 1 - Installing Wireguard
 First you need to connect to your server over ssh.
