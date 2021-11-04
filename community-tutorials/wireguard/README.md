@@ -1,20 +1,20 @@
 ---
-title: Wireguard VPN on Debian 10/11
-description: How to install a Wireguard VPN Server very easy on Debian Server
+title: Wireguard VPN on most Linux Server
+description: How to install a Wireguard VPN Server very easy on most Linux Servers
 updated_at: 2021-11-04
-slug: install-wireguard-vpn-server-debian
+slug: install-wireguard-vpn-server-linux
 author_name: Jonas Löchner
 author_url: https://sancraft.dev/
 author_image: https://dl.sancraft.dev/images/Sanoj/1-B.png
 author_bio: -
-tags: debian, buster, bullseye, vpm, wg, wireguard
+tags: vpn, wg, wireguard, linux, debian, ubuntu, centos, fedora
 netcup_product_url: https://netcup.de/bestellen/produkt.php?produkt=2623
 language: en
 available_languages: en
 ---
 
 # Introduction
-This tutorial will show you, how you can very easily install a Wireguard VPN server on your Debian server "RS 2000" and how you can connect to the vpn <br>
+This tutorial will show you, how you can very easily install a Wireguard VPN server on the most Linux OSs on the server "RS 2000" trough a very easy installer and how you can connect to the vpn <br>
 Wireguard is a fast, secure and easy to use VPN Software.
 This is an advenced version of https://github.com/SanCraftDev/Debian-Setup/blob/main/README.md#wireguard-vpn
 
