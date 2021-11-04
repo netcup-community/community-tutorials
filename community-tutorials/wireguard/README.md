@@ -14,8 +14,8 @@ available_languages: en
 ---
 
 # Introduction
-This tutorial will show you, how you can very easily install a Wireguard VPN server on the most Linux OSs on the server "RS 2000" trough a very easy installer and how you can connect to the vpn <br>
-Wireguard is a fast, secure and easy to use VPN Software.
+This tutorial will show you, how you can very easily install a Wireguard VPN server on the most Linux OSs on the server "RS 2000" trough a very easy installer, which you can find [here](https://github.com/Nyr/wireguard-install) and how you can connect to the vpn <br>
+Wireguard is a fast, secure and easy to use VPN Software. <br>
 This is an advenced version of https://github.com/SanCraftDev/Debian-Setup/blob/main/README.md#wireguard-vpn
 
 # Requirements
