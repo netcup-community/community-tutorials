@@ -24,7 +24,7 @@ You need a Debian Server with an Internet Connection, which is accessible from t
 First we are going to update the system, and then we are going to install the squid HTTP proxy.
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
-apt install squid squid3 -y
+apt install squid -y
 ```
 
 # Step 1.1 - Inserting the configuration
