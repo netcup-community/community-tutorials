@@ -5,7 +5,7 @@ updated_at: 2021-11-04
 slug: install-squid-http-proxy-debian
 author_name: Jonas Löchner
 author_url: https://sancraft.dev/
-author_image: https://secure.gravatar.com/avatar/a73d7947f9c03549668cddf5b2bf6522?s=1700
+author_image: https://dl.sancraft.dev/images/Sanoj/1-B.png
 author_bio: -
 tags: debian, proxy, squid, squid3, http, buster, bullseye
 netcup_product_url: https://netcup.de/bestellen/produkt.php?produkt=2623
