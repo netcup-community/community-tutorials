@@ -90,7 +90,7 @@ Now enter your IP address or the DynDNS address of your proxy server and the por
 Now activate the Checkbox "Proxy server requires password" and now enter your username and the password of this username, which we created in step 1.2 <br>
 Now click "Ok" and then "apply"
 
-## Step 2.4 - Linux
+## Step 2.6 - Linux
 Run: `sudo nano /etc/environment` <br>
 And add there the following and replace your username and the password of this username, which we created in step 1.2 and replace "hostname" with the IP address or the DynDNS address of your proxy server and  "port" with the port "8449":
 ```sh
