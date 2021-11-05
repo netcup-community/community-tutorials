@@ -1,3 +1,5 @@
+> Thank you for your pull requests! Since we got so many at once, we want to let you know that we're working on it. Please be patient and keep pulling those requests! :)  
+
 # netcup Community Tutorials
 Community contributed tutorials about what can be done with netcup products and services.
 
