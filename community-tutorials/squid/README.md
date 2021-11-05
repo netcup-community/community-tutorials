@@ -18,14 +18,16 @@ This tutorial will show you, how you can install the HTTP proxy squid on your De
 This is an advenced version of https://github.com/SanCraftDev/Debian-Setup/blob/main/README.md#Squid-HTTP-Proxy---with-Password-Authentication
 
 # Requirements
-You need a Debian Server with an Internet Connection, which is accessible from the internet over a static IP or over a DynDNS address on Port 8449. You also need root permissions on your server.
+You need a Debian Server with an Internet Connection, which is accessible from the internet over a static IP on Port 8449. <br>
+You also need root permissions on your server.
 
 # Step 1 - Installing Squid
 First you need to connect to your server over ssh.
-Then we are going to switch to the root user and are going to update the system, and then we are going to install the squid HTTP proxy.
+Then we are going to switch to the root user and are going to update the system, install required packages and then we are going to install the squid HTTP proxy.
 ```sh
-sudo su
+su
 apt update && apt upgrade -y && apt autoremove -y
+apt install curl sudo wget apache2-utils nano -y
 apt install squid -y
 ```
 
@@ -43,11 +45,11 @@ Please replace "USERNAME" in the next command with an actual Username, which you
 htpasswd -c /etc/squid/passwords USERNAME
 ```
 Now enter a new secure Password. <br>
-Repeat this step how often you want for new users, which should be able to use this proxy.
+Repeat this step depending on how many users you need, which should be able to use this proxy.
 
 ## Step 1.3 - Starting Squid
 To enable the inserted configuration, we need to restart the squid proxy, to do this, simply run: <br>
-The restart may take a while.
+The restart may take a longer while.
 ```sh
 service squid restart
 ```
@@ -57,7 +59,7 @@ service squid restart
 ## Step 2.1 - Windows 11
 Open your settings app and go to "network and internet" <br>
 Select Proxy and now select under "Manual proxy setup" the "Set up" Button right from "Use a proxy server" <br>
-Now enabled "Use a proxy server" now enter under "Proxy IP address" the IP address or the DynDNS address of your proxy server and under "Port" the port "8449" <br>
+Now enabled "Use a proxy server" now enter under "Proxy IP address" the IP address or the hostname of your proxy server and under "Port" the port "8449" <br>
 Now activate the Checkbox "Don't use the proxy server for local (intranet) addresses" <br>
 Now you can click the Button "Save" <br>
 Now you will sometimes be asked for one of the username and the password of this username, which we created in step 1.2
@@ -65,7 +67,7 @@ Now you will sometimes be asked for one of the username and the password of this
 ## Step 2.2 - Windows 10
 Open your settings app and go to "network and internet" <br>
 Select Proxy and now activate under "Manual proxy setup" the "use proxy server" <br>
-Now enter under "address" the IP address or the DynDNS address of your proxy server and under "Port" the port "8449" <br>
+Now enter under "address" the IP address or the hostname of your proxy server and under "Port" the port "8449" <br>
 Now activate the Checkbox "Don't use the proxy server for local (intranet) addresses" <br>
 Now you can click the Button "Save" <br>
 Now you will sometimes be asked for one of the username and the password of this username, which we created in step 1.2
@@ -74,27 +76,33 @@ Now you will sometimes be asked for one of the username and the password of this
 Go to in your settings app and go to your Wi-Fi settings. <br>
 Press your Wi-Fi network for some time and select "change" or "settings" or if there is something like a settings button direct shown on your connected Wi-Fi network press this button <br>
 Now click on "show more" and select proxy, here select "manual" <br>
-Now enter under "address" or "hostname" the IP address or the DynDNS address of your proxy server and under "Port" the port "8449" <br>
+Now enter under "address" or "hostname" the IP address or the hostname of your proxy server and under "Port" the port "8449" <br>
 Now you can click the Button "Save" <br>
 Now you will sometimes be asked for one of the username and the password of this username, which we created in step 1.2
 
 ## Step 2.4 - IOS - iPadOS
 Go to in your settings app and go to your Wi-Fi settings. <br>
 Press your Wi-Fi network and now select "configure proxy", now select "manual" <br>
-Now enter under "server" the IP address or the DynDNS address of your proxy server and under "Port" the port "8449" <br>
+Now enter under "server" the IP address or the hostname of your proxy server and under "Port" the port "8449" <br>
 Now activate the Checkbox "Authentication" and enter your username and the password of this username, which we created in step 1.2 <br>
 Now you can click the upper Button, "Save"
 
 ## Step 2.5 - macOS
 Go to your Settings and select "network", there select your Ethernet or Wi-Fi network <br>
 There select "advanced" and now "Proxies", here select "Web Proxy (HTTP)" and "Secure Web Proxy (HTTPS)" <br>
-Now enter your IP address or the DynDNS address of your proxy server and the port "8449" <br>
+Now enter your IP address or the hostname of your proxy server and the port "8449" <br>
 Now activate the Checkbox "Proxy server requires password" and now enter your username and the password of this username, which we created in step 1.2 <br>
 Now click "Ok" and then "apply"
 
 ## Step 2.6 - Linux
-Run: `sudo nano /etc/environment` <br>
-And add there the following and replace your username and the password of this username, which we created in step 1.2 and replace "hostname" with the IP address or the DynDNS address of your proxy server and  "port" with the port "8449":
+Run the following commands to install required packages and then to open the proxy configuration file
+```sh
+su
+apt update && apt upgrade -y && apt autoremove -y
+apt install curl sudo wget nano -y
+sudo nano /etc/environment
+```
+Now add there the following lines and replace "username" with a username and "password" with the password of this username, from one of th users, which we created in step 1.2 and replace "hostname" with the IP address or the hostname of your proxy server and  "port" with the port "8449":
 ```sh
 http_proxy="http://<username>:<password>@<hostname>:<port>/"
 https_proxy="http://<username>:<password>@<hostname>:<port>/"
