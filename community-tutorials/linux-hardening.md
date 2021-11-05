@@ -377,4 +377,4 @@ Contributor's Certificate of Origin By making a contribution to this project, I 
 
  4) I understand and agree that this project and the contribution are public and that a record of the contribution (including all personal information I submit with it, including my sign-off) is maintained indefinitely and may be redistributed consistent with this project or the license(s) involved.
 
-Signed-off-by: Kim Oliver Drechseö (kim@drechsel.xyz)
+Signed-off-by: Kim Oliver Drechsel (kim@drechsel.xyz)
