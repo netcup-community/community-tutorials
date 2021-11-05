@@ -1,8 +1,8 @@
 ---
-title: First steps to secure your Linux machine
-description: A few simple steps to protect your Linux machine from common attacks  
+title: First steps to secure your Linux server
+description: A few simple steps to protect your Linux server from common attacks  
 updated_at: 2021-11-05
-slug: how-to-protect-your-linux-machine-against-common-attacks
+slug: how-to-protect-your-linux-server-against-common-attacks
 author_name: Kim Oliver Drechsel
 author_url: https://drechsel.xyz/
 author_image: https://avatars.githubusercontent.com/u/27567533
@@ -23,7 +23,7 @@ For example, your server could be used
 - to act as a proxy to disguise someones identity for further attacks.
 
 <div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:left; vertical-align: middle; padding:20px 20px;">
-<span style="font-weight: bold;">Please note</span>: The following methods are explained for use on a Linux-based machine, however most of them can be applied in a similar way on any other Unix- or Windows-based machine as well since they are known as best practices.
+<span style="font-weight: bold;">Please note</span>: The following methods are explained for use on a Linux-based server, however most of them can be applied in a similar way on any other Unix- or Windows-based server as well since they are known as best practices.
 </div>
 
 # Requirements
@@ -180,7 +180,7 @@ Windows users see [Step 3.1b](#step-31b---generate-a-key-pair-using-puttygen-on-
     cat id_ed25519
     ```
     
-1. Copy the content of your public key to your remote machine [as described here](#step-32---use-the-key-pair).
+1. Copy the content of your public key to your remote server [as described here](#step-32---use-the-key-pair).
 
 ### Step 3.1b - Generate a Key-Pair using PuTTYgen (on Windows)
 
@@ -210,7 +210,7 @@ We strongly recommended using a passphrase be for private key files intended for
 
 ### Step 3.2.1 - Add the Public Key
 
-Login to your remote machine as your normal user ([See Step 2](#step-2---create-a-user-account)) and add the public key to `~/.ssh/authorized_keys` so you can login to the SSH server with your private key.
+Login to your remote server as your normal user ([See Step 2](#step-2---create-a-user-account)) and add the public key to `~/.ssh/authorized_keys` so you can login to the SSH server with your private key.
 
 This can be done using the command line text editor *nano* for example:
 ```bash
@@ -223,11 +223,11 @@ sudo nano ~/.ssh/authorized_keys
 
 Then configure your SSH client to use your private key. 
 
-- If you connect to the remote machine from the command line, the private keys in your home directory `~/.ssh` are automatically used.
+- If you connect to the remote server from the command line, the private keys in your home directory `~/.ssh` are automatically used.
 - With PuTTY first create a new session in the `Session` tab:
   - In the upper field `Host Name` enter `yourusername@yourhost`
 
-    `yourhost` can be either an ip adress or the domain name of your remote machine.
+    `yourhost` can be either an ip adress or the domain name of your remote server.
   
   - Port is 22 for now (default)
   - In the field below `Saved Sessions` enter a name for your new session
@@ -245,7 +245,7 @@ With the key pair now set up on the new created user account we can now test if 
     ```bash
     ssh yourusername@yourhost
     ```
-`yourhost` can be either an ip adress or the domain name of your remote machine.
+`yourhost` can be either an ip adress or the domain name of your remote server.
 
 If the ssh connection was possible we can continue with [Step 3.4](#step-34---configure-the-ssh-server).
 
@@ -349,7 +349,7 @@ sudo ufw status  # Check ufw settings afterwards
 ```
 
 You can also use ufw to allow only specific IP adresses or ranges.
-If you do this on a machine outside of your local network make sure your public IP adress doesn't change after a while, otherwise you will be unable to login.
+If you do this on a server outside of your local network make sure your public IP adress doesn't change after a while, otherwise you will be unable to login.
 
 Example for an IP range in your LAN
 ```bash
