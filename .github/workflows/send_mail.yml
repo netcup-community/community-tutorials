@@ -1,14 +1,11 @@
 name: Send mail on PR
 on:
-  pull_request:
+  pull_request_target:
     types: [opened]
 jobs:
   send_mail:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
-
       - name: Get pull request number #️⃣
         id: pull_request_number
         run: |
