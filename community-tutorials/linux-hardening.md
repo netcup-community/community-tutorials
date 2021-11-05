@@ -1,0 +1,380 @@
+---
+title: First steps to secure your Linux machine
+description: A few simple steps to protect your Linux machine from common attacks  
+updated_at: 2021-11-05
+slug: how-to-protect-your-linux-machine-against-common-attacks
+author_name: Kim Oliver Drechsel
+author_url: https://drechsel.xyz/
+author_image: https://avatars.githubusercontent.com/u/27567533
+author_bio: https://github.com/kimdre/kimdre/blob/main/README.md
+tags: linux, hardening, protect, protection, attacks, security, secure 
+netcup_product_url: https://www.netcup.de/bestellen/produkt.php?produkt=2000
+language: en
+available_languages: en
+---
+
+# Introduction
+
+Since your server is always accessible via the Internet by default, you should take some measures to protect it from the most common malicious attempts to gain access to your server and data.
+
+For example, your server could be used
+- to send spam and phishing emails to other people.
+- as part of a botnet to attack other targets in large numbers (such as a [DDoS attack](https://en.wikipedia.org/wiki/Denial-of-service_attack)).
+- to act as a proxy to disguise someones identity for further attacks.
+
+<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:left; vertical-align: middle; padding:20px 20px;">
+<span style="font-weight: bold;">Please note</span>: The following methods are explained for use on a Linux-based machine, however most of them can be applied in a similar way on any other Unix- or Windows-based machine as well since they are known as best practices.
+</div>
+
+# Requirements
+
+-  root / sudo access to the running system
+
+# Step 1 - Keep your System Up-to-Date 
+
+A great first step is to always keep your system up-to-date using your package manager. This package manager manages all installed software and checks for any available updates.
+
+Some distributions also have packages for automated updates.
+
+- Debian-based Systems (Debian, Ubuntu, Mint)
+    ```bash
+    sudo apt update
+    sudo apt dist-upgrade
+    ```
+
+    <div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:left; vertical-align: middle; padding:20px 20px;">For automated installs of important updates see the package <a href='https://wiki.debian.org/UnattendedUpgrades'>unattended-upgrades</a>.
+    </div>
+
+- Red-Hat based Systems (CentOS, Fedora)
+    ```bash
+    sudo yum update yum
+    sudo yum update
+    ```
+    or on newer systems
+    ```bash
+    sudo dnf upgrade
+    sudo dnf install dnf-automatic # This package installs important updates automatically
+    ```
+
+    <div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:left; vertical-align: middle; padding:20px 20px;">For automated installs of important updates see the package <a href='https://fedoraproject.org/wiki/AutoUpdates'>dnf-automatic</a>.
+    </div>
+
+- SuSE-based Systems (openSUSE)
+    ```bash
+    sudo zypper update
+    ```
+- Arch-based Systems (Manjaro)
+    ```bash
+    sudo pacman -Syu
+    ```
+
+# Step 2 - Create a normal User Account
+
+It is recommended to always use a user account for loggin in and normal use instead of doing everything as root (the system administrator account). 
+
+1. Use the `adduser` command to add a new user to your system.
+Be sure to replace *yourusername* with the user that you want to create.
+    ```bash
+    adduser yourusername
+    ```
+
+   - Set and confirm the new user’s password at the prompt. A strong password is highly recommended!
+       ```
+       Set password prompts:
+       Enter new UNIX password:
+       Retype new UNIX password:
+       passwd: password updated successfully
+       ```
+
+   - Follow the prompts to set the new user’s information. It is fine to accept the defaults to leave all of this information blank.
+       ```
+       User information prompts:
+       Changing the user information for username
+       Enter the new value, or press ENTER for the default
+           Full Name []:
+           Room Number []:
+           Work Phone []:
+           Home Phone []:
+           Other []:
+       Is the information correct? [Y/n]
+       ```
+
+2. Use the usermod command to add the user to the sudo group.
+    ```bash
+    usermod -aG sudo username
+    ```
+By default members of the sudo group have sudo privileges.
+
+3. Test sudo access on new user account
+   - Use the su command to switch to the new user account.
+       ```bash
+       su - username
+       ```
+
+   - As the new user, verify that you can use sudo by prepending “sudo” to the command that you want to run with superuser privileges.
+       ```bash
+       sudo command_to_run
+       ```
+
+   - For example, you can list the contents of the /root directory, which is normally only accessible to the root user.
+       ```bash
+       sudo ls -la /root
+       ```
+
+# Step 3 - Secure the SSH Server
+
+SSH is the most commonly used protocol for secure/encrypted access to a remote system nowadays. For this reason, there are bots that check every IP on the Internet to see if its default SSH port (Port 22) is accessible and how it is protected.
+
+## Step 3.1 - Setup a Public Key authentication 
+
+To secure access, we will move to authentication with a key pair. This means that we will no longer use a password, but a key pair in text form that behaves like a keyhole (called public key) and a matching key (called private key).
+
+<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:left; vertical-align: middle; padding:20px 20px;">
+<span style="font-weight: bold;">Please note</span>: After generating this key pair, we only share our public key, because the private key should always be kept secret like a password!
+</div>
+
+If you want more informations about the Public Key authentication you can read the[ official documentation](https://www.ssh.com/academy/ssh/public-key-authentication).
+
+### Step 3.1a - Generate a Key-Pair using Command Line (on Linux)
+
+Windows users see [Step 3.1b](#step-31b---generate-a-key-pair-using-puttygen-on-windows).
+
+1. To create a new key-pair with the key type **ed25519** (recommended) use the following command. If you want to authenticate to older systems use **rsa** instead.
+    ```bash
+    ssh-keygen -t ed25519
+    ```
+
+- At the following prompt accept the default file path or enter your own where your want to save the key pair.
+    ```
+    Generating public/private ed25519 key pair.
+    Enter file in which to save the key (/home/username/.ssh/id_ed25519):
+    ```
+
+- At the following prompt, confirm your passphrase selection and press Enter.
+    ```
+    Enter passphrase (empty for no passphrase):
+    ```
+    This example is a sample of the system response:
+    ```
+    Your identification has been saved in /home/username/.ssh/id_ed25519
+    Your public key has been saved in /home/username/.ssh/id_ed25519.pub
+    The key fingerprint is:
+    SHA256:4G2TLkzXlS2BSN1zlbgJpZK3TEg/Lmgk3AYofxjyJEU username@hostname
+    The key's randomart image is:
+    +--[ED25519 256]--+
+    |  oE.. ..+ oo...o|
+    | + +. o o *.+=.. |
+    |  B oo.+ + *=o+  |
+    |   + o+o.o*.o+   |
+    |    . ooS..+     |
+    |     o.+ ..      |
+    |      o .        |
+    |       .         |
+    |                 |
+    +----[SHA256]-----+
+    ```
+- Validate that the keys were generated.
+    ```
+    cd $HOME/.ssh
+    ls -l
+    cat id_ed25519
+    ```
+    
+1. Copy the content of your public key to your remote machine [as described here](#step-32---use-the-key-pair).
+
+### Step 3.1b - Generate a Key-Pair using PuTTYgen (on Windows)
+
+To generate such a key-pair we use [PuTTYgen](https://www.ssh.com/academy/ssh/putty/windows/puttygen) which is part of the PuTTY package that you can [download here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). 
+
+After installation you can find PuTTYgen at
+
+`Start menu → All Programs → PuTTY → PuTTYgen`.
+
+![PuTTYgen Window](images\PuTTYgen_started-2.webp "PuTTYgen Window")
+
+To create a new key pair, select the type of key to generate from the bottom of the screen (using ed25519 is good for most people; another good well-known alternative is ECDSA or SSH-2 RSA with 2048 bit key size on older systems).
+
+Then click **Generate**, and start moving the mouse within the Window. Putty uses mouse movements to collect randomness. The exact way you are going to move your mouse cannot be predicted by an external attacker. You may need to move the mouse for some time, depending on the size of your key. As you move it, the green progress bar should advance.
+
+Once the progress bar becomes full, the actual key generation computation takes place. This may take from several seconds to several minutes. When complete, the public key should appear in the Window. You can now specify a [passphrase](https://www.ssh.com/academy/ssh/passphrase) for the key.
+
+You should save at least the private key by clicking **Save private key**. It may be advisable to also save the public key, though it can be later regenerated by loading the private key (by clicking **Load**).
+
+![PuTTYgen generating RSA SSH key](images\PuTTYgen_generating_RSA_SSH_key-2.webp "PuTTYgen generating RSA SSH key")
+
+We strongly recommended using a passphrase be for private key files intended for interactive use. If keys are needed for automation (e.g., with [WinSCP](https://www.ssh.com/ssh/winscp/), then they may be left without a passphrase.
+
+![PutTTYgen created key and asking for passphase to save private key](images\puttygen_created_key_and_asking_for_passphase_to_save_private_key-2.webp "PutTTYgen created key and asking for passphase to save private key")
+
+## Step 3.2 - Use the Key-Pair
+
+### Step 3.2.1 - Add the Public Key
+
+Login to your remote machine as your normal user ([See Step 2](#step-2---create-a-user-account)) and add the public key to `~/.ssh/authorized_keys` so you can login to the SSH server with your private key.
+
+This can be done using the command line text editor *nano* for example:
+```bash
+sudo nano ~/.ssh/authorized_keys
+```
+1. Add the public key (starting with `ssh-ed25519 AAAA...` if you used ed25519) in a new line in the file
+2. Then save and close it by pressing `Ctrl + x` and `y` when it prompts "Save modified buffer?" on the bottom of the screen. Press `Enter` to write the saved file to overwrite the file. 
+
+### Step 3.2.2 - Add the Private Key
+
+Then configure your SSH client to use your private key. 
+
+- If you connect to the remote machine from the command line, the private keys in your home directory `~/.ssh` are automatically used.
+- With PuTTY first create a new session in the `Session` tab:
+  - In the upper field `Host Name` enter `yourusername@yourhost`
+
+    `yourhost` can be either an ip adress or the domain name of your remote machine.
+  
+  - Port is 22 for now (default)
+  - In the field below `Saved Sessions` enter a name for your new session
+  - Set your private key at `Connection -> SSH -> Auth -> "Private key file for authentication"`
+  - Save your session by pressing `Save` in the `Session` tab.
+
+    ![add private key to PuTTY](images\add_private_key_to_putty.png "add private key to PuTTY")
+
+## Step 3.3 - Test the connection
+
+With the key pair now set up on the new created user account we can now test if the passwordless SSH connection works:
+
+- With PuTTY select your session and press the `Open`-Button on the bottom or double-click it.
+- With the command line enter the following
+    ```bash
+    ssh yourusername@yourhost
+    ```
+`yourhost` can be either an ip adress or the domain name of your remote machine.
+
+If the ssh connection was possible we can continue with [Step 3.4](#step-34---configure-the-ssh-server).
+
+
+## Step 3.4 - Configure the SSH Server
+
+1. Backup your configuration first
+
+    It is always a good idea to make a copy of your configuration files before you change them. Otherwise, it can be difficult to find the previous settings if something doesn't work afterwards.
+
+    ```bash
+    sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
+    ```
+
+2. Open the sshd configuration file
+    ```bash
+    sudo nano /etc/ssh/sshd_config
+    ```
+
+    1. **Disable Password Authentitcation**
+       
+       As we now have a working key pair authentication we can disable password authentitcation now.
+       Inside the configuration file find the following line and change Change the `yes` to `no`.
+       ```bash
+       PasswordAuthentication yes
+       ```
+
+   1. **Disable SSH root login**
+
+        Direct root login is always a bad idea and we want only user accounts to be able to login.
+
+        Find this line and change the `no` to `yes`.
+        ```bash
+        PermitRootLogin no 
+        ```
+
+    2. **Change the SSH Port** (Optional)
+
+        To prevent bots from constantly checking our SSH port, we can also change it. Since we have switched to key pair authentication, this is no longer strictly necessary, but can still increase security.
+
+        Find this line and change the number to anything higher than 1024.
+        ```bash
+        Port 22
+        ```
+
+        <div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:left; vertical-align: middle; padding:20px 20px;">
+        <span style="font-weight: bold;">Please note</span>: With this change you also need to change the port in your SSH client to the new number after your restarted the SSH Server since the default port (Port 22) is no longer listening for any SSH connections!
+        </div>
+
+    Save and close the by pressing `Ctrl + x` and `y` when it prompts "Save modified buffer?" on the bottom of the screen. Press `Enter` to write the saved file to overwrite the file. 
+
+3. Restart the SSH Server
+    ```bash
+    sudo systemctl restart sshd
+    ```
+    or
+    ```bash
+    sudo service sshd restart
+    ```
+
+# Step 4 - Close your Firewall
+
+Best practice for firewalls is to close as much ports as possible and open only those that are really needed.
+
+A simple and great tool for such tasks is called `ufw` (Uncomplicated Firewall) which is available on most big distributions. 
+
+## Step 4.1 - Install UFW
+
+- Debian-based Systems (Ubuntu, Mint)
+    ```bash
+    sudo apt update
+    sudo apt install ufw -y
+    ```
+
+- Red-Hat based Systems (CentOS, Fedora)
+    ```bash
+    sudo yum install epel-release -y
+    sudo yum install --enablerepo="epel" ufw -y
+    ```
+ 
+- SuSE-based Systems (openSUSE)
+    ```bash
+    sudo zypper install ufw -y
+    ```
+
+- Arch-based Systems (Manjaro)
+    ```bash
+    sudo pacman -Sy ufw
+    ```
+
+## Step 4.2 Set up UFW
+
+After installing, set it up with the following commands
+```bash
+sudo ufw default deny  # Close all ports by default, then open only those that are needed
+sudo ufw allow ssh  # We open the Port for SSH. If you changed the SSH Port to something else than 22 replace `ssh` with your Port number and /tcp i.e.: sudo ufw allow 2233/tcp
+sudo ufw limit shh  # Adds a rate limit of 6 attempted connections per 30 seconds to this port to prevent brute force attacks. Same as before, change ssh to your Port/tcp if you don't use the default; Limits can be changed in the ufw config.
+sudo ufw enable  # Enable the UFW Service
+sudo systemctl enable ufw 
+sudo ufw status  # Check ufw settings afterwards
+```
+
+You can also use ufw to allow only specific IP adresses or ranges.
+If you do this on a machine outside of your local network make sure your public IP adress doesn't change after a while, otherwise you will be unable to login.
+
+Example for an IP range in your LAN
+```bash
+ufw allow from 192.168.0.0/24  # Allow a private IP range from 192.168.0.0 to 192.168.0.254
+```
+
+
+# Conclusion
+With these few steps you already have a much more secure server and will be a unpopular target for hackers. If you are interested in more linux hardening topics you can also check out fail2ban, VPNs like Wireguard and OpenVPN, Two-Factor Authentification for Applications and even SSH.
+
+# Sources
+- [ssh.com](https://www.ssh.com/) for images of the Putty Package applications and parts of the documentation of them.
+
+# License
+MIT
+
+# Contributor's Certificate of Origin
+Contributor's Certificate of Origin By making a contribution to this project, I certify that:
+
+ 1) The contribution was created in whole or in part by me and I have the right to submit it under the license indicated in the file; or
+
+ 2) The contribution is based upon previous work that, to the best of my knowledge, is covered under an appropriate license and I have the right under that license to submit that work with modifications, whether created in whole or in part by me, under the same license (unless I am permitted to submit under a different license), as indicated in the file; or
+
+ 3) The contribution was provided directly to me by some other person who certified (a), (b) or (c) and I have not modified it.
+
+ 4) I understand and agree that this project and the contribution are public and that a record of the contribution (including all personal information I submit with it, including my sign-off) is maintained indefinitely and may be redistributed consistent with this project or the license(s) involved.
+
+Signed-off-by: Kim Oliver Drechseö (kim@drechsel.xyz)
