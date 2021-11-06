@@ -262,9 +262,9 @@ If the ssh connection was possible we can continue with [Step 3.4](#step-34---co
     sudo nano /etc/ssh/sshd_config
     ```
 
-    1. **Disable Password Authentitcation**
+    1. **Disable Password Authentication**
        
-       As we now have a working key pair authentication we can disable password authentitcation now.
+       As we now have a working key pair authentication we can disable password authentication.
        Inside the configuration file find the following line and change Change the `yes` to `no`.
        ```bash
        PasswordAuthentication yes
