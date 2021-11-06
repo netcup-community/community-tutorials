@@ -53,7 +53,6 @@ Some distributions also have packages for automated updates.
     or on newer systems
     ```bash
     sudo dnf upgrade
-    sudo dnf install dnf-automatic # This package installs important updates automatically
     ```
 
     <div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:left; vertical-align: middle; padding:20px 20px;">For automated installs of important updates see the package <a href='https://fedoraproject.org/wiki/AutoUpdates'>dnf-automatic</a>.
