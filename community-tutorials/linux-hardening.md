@@ -264,8 +264,8 @@ If the ssh connection was possible we can continue with [Step 3.4](#step-34---co
 
     1. **Disable Password Authentication**
        
-       As we now have a working key pair authentication we can disable password authentication.
-       Inside the configuration file find the following line and change Change the `yes` to `no`.
+       As we now have a working key pair authentication we can disable the password authentication.
+       Inside the configuration file find the following line and change the `yes` to `no`.
        ```bash
        PasswordAuthentication yes
        ```
@@ -292,7 +292,7 @@ If the ssh connection was possible we can continue with [Step 3.4](#step-34---co
         <span style="font-weight: bold;">Please note</span>: With this change you also need to change the port in your SSH client to the new number after your restarted the SSH Server since the default port (Port 22) is no longer listening for any SSH connections!
         </div>
 
-    Save and close the by pressing `Ctrl + x` and `y` when it prompts "Save modified buffer?" on the bottom of the screen. Press `Enter` to write the saved file to overwrite the file. 
+    Save and close the file by pressing `Ctrl + x` and `y` when it prompts "Save modified buffer?" on the bottom of the screen. Press `Enter` to save the file. 
 
 3. Restart the SSH Server
     ```bash
