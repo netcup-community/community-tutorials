@@ -233,8 +233,6 @@ Then configure your SSH client to use your private key.
   - Set your private key at `Connection -> SSH -> Auth -> "Private key file for authentication"`
   - Save your session by pressing `Save` in the `Session` tab.
 
-    ![add private key to PuTTY](images/add_private_key_to_putty.png "add private key to PuTTY")
-
 ## Step 3.3 - Test the connection
 
 With the key pair now set up on the new created user account we can now test if the passwordless SSH connection works:
