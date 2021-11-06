@@ -209,7 +209,7 @@ We strongly recommended using a passphrase be for private key files intended for
 
 ### Step 3.2.1 - Add the Public Key
 
-Login to your remote server as your normal user ([See Step 2](#step-2---create-a-user-account)) and add the public key to `~/.ssh/authorized_keys` so you can login to the SSH server with your private key.
+Login to your remote server as your normal user ([See Step 2](#step-2---create-a-normal-user-account)) and add the public key to `~/.ssh/authorized_keys` so you can login to the SSH server with your private key.
 
 This can be done using the command line text editor *nano* for example:
 ```bash
