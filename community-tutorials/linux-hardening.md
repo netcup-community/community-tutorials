@@ -216,7 +216,7 @@ This can be done using the command line text editor *nano* for example:
 sudo nano ~/.ssh/authorized_keys
 ```
 1. Add the public key (starting with `ssh-ed25519 AAAA...` if you used ed25519) in a new line in the file
-2. Then save and close it by pressing `Ctrl + x` and `y` when it prompts "Save modified buffer?" on the bottom of the screen. Press `Enter` to write the saved file to overwrite the file. 
+2. Then save and close it by pressing `Ctrl + x` and `y` when it prompts "Save modified buffer?" on the bottom of the screen. Press `Enter` to save the file. 
 
 ### Step 3.2.2 - Add the Private Key
 
