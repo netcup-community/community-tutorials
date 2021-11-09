@@ -6,7 +6,7 @@ jobs:
   send_mail:
     runs-on: ubuntu-latest
     steps:
-      - name: Get PR Number
+      - name: Get PR Number Test
         uses: jwalton/gh-find-current-pr@v1
         id: findPr
         with:
