@@ -16,7 +16,7 @@ jobs:
           MY_STRING=$(cat << EOF
           New Pull Request to Review on ${{ github.repository }}
 
-          https://github.com/${{ github.repository }}/pull/${{PR}}
+          https://github.com/${{ github.repository }}/pull/${{steps.findPr.outputs.pr}}
 
           EOF
           )
