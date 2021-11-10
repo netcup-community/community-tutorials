@@ -42,7 +42,7 @@ At the time of the creation of this tutorial (October 2021), the recommended pro
 Existing customers can add the product easily and quickly.
 
 # Step 2 - Basic configuration of the server
-After the provisioning of the server and the first login with the username `root` and the password sent by email, the first step is to update the basic configuration of the server.
+After provisioning of the server and the first login with the username `root` and the password sent by email, the first step is to update the basic configuration of the server.
 
 1. Change the root password by means of `passwd`.
 2. Import the current security updates with `apt-get update && apt-get upgrade -y`.
