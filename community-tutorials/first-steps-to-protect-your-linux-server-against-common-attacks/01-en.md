@@ -7,7 +7,7 @@ author_name: Kim Oliver Drechsel
 author_url: https://drechsel.xyz/
 author_image: https://avatars.githubusercontent.com/u/27567533
 author_bio: https://github.com/kimdre/kimdre/blob/main/README.md
-tags: linux, hardening, protect, protection, attacks, security, secure 
+tags: [linux, hardening, protect, protection, attacks, security, secure]
 netcup_product_url: https://www.netcup.de/bestellen/produkt.php?produkt=2000
 language: en
 available_languages: en
