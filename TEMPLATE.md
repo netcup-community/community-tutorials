@@ -66,7 +66,7 @@ SSH daemon usually listens on port 22. To make it accessible even from restricte
 
 SSH daemon is now successfully configured and can be reached via ports 22, 80 and 443.
 
-# Step 4 (Use as SOCKS server)
+# Step 4 - Use as SOCKS server
 To use Chrome or another browser in such a way that it handles all traffic through the SSH proxy, you use it as a SOCKS proxy. This way, you can show streaming services, for example, that you are actually located in Germany if the geolocation of your own IP doesn't work properly.
 
 Technically, in this case, your own computer is the SOCKS proxy that uses SSH proxy for forwarding. Therefore, `localhost` is specified as the (SOCKS) proxy server (see figure below).
@@ -83,7 +83,7 @@ This results in Chrome using the SOCKS proxy as nameserver for name resolution, 
 
 ![The SOCKS proxy can handle multiple ports simultaneously](images/socks.png)
 
-# Step 5 (Use as jump server)
+# Step 5 - Use as jump server
 To access other servers whose SSH daemon is bound only to port 22 (or another), use the command:
 
 `ssh -J root@v11111111.quicksrv.de:443 root@myserver.com`
