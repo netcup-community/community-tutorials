@@ -1,68 +1,107 @@
 ---
-title: My cool tutorial
-description: How to do something cool with netcup products
-updated_at: 2021-10-20
-slug: how-to-do-something-cool-with-netcup-products
-author_name: Max Mustermann
+title: Setup and Usage of a Simple SSH Proxy
+description: Learn how to set up a simple SSH proxy and use it as jump host or SOCKS proxy.
+updated_at: 2021-10-21
+slug: ssh-proxy-setup-and-usage
+author_name: Niki Hansche
 author_url: -
-author_image: https://anx.io/0WL19
-author_bio: Muster
-tags: python 
-netcup_product_url: https://www.netcup.de/bestellen/produkt.php?produkt=2128
+author_image: -
+author_bio: -
+tags: [shell, ssh, linux] 
+netcup_product_url: https://www.netcup.de/bestellen/produkt.php?produkt=2000
 language: en
-available_languages: en
+available_languages: [de, en]
 ---
 
 # Introduction
-Please explain what your tutorial is about and be specific about what users will end up with.  You can link to corresponding tutorials that your tutorial builds on, and add recommendations for what users should know. Please don't simply list the steps they will be following, a table of contents/list of steps will be automatically added.
+This tutorial describes how to set up and use a simple SSH proxy that allows you to utilize an SSH connection to your own servers in environments with a blocked port 22.
+
+This is useful, for example, when traveling or if internet access is limited in hotels or vacation homes.
+
+The reading time of this tutorial is about five minutes; implementation will take approximately 45 minutes.
+
+The most important requirement for implementation is a basic understanding of the Unix command line and the use of SSH services and proxy servers. All examples were tested on a current Debian/Ubuntu (October 2021) and can be easily adapted to other distributions.
+
+Use of the proxy is described from a Unix user's point of view and it works similarly under macOS. For its use under Windows, further adjustments are necessary, which are not part of this tutorial.
+
+The tutorial uses the example hostname `v11111111.quicksrv.de`. This hostname needs to be replaced by the name of your own server when you perform the workflow described in this tutorial.
 
 # Requirements
-List the requirements for your tutorial. If there is already a tutorial explaining one of them, link to that corresponding tutorial. You might also want to add some glossary used throughout the tutorial.
+Since the presented technology is optimized for short deployment times ranging from days to a few weeks, the server should meet the following requirements:
 
-# Step 1 - (Summary of Step)
-Please describe the actual steps users will be taking.
+* It should be economical,
+* have sufficient CPU power, and
+* it should have a German IP address.
 
-Make sure to not skip any step, no matter how self-explanatory they seem to you and to always build on the previous one all the way to the final step.
+The hard disk capacity, on the other hand, is not relevant.
 
-Feel free to include screenshots, to show exactly what the user should be seeing. Please provide images in a separate folder named `images`. 
+The simplest VPS from netcup meets these requirements thanks to hourly billing.
 
-The final amount of steps will depend entirely on how long and/or complicated your tutorial is.
+# Step 1 - Ordering the VPS
+At the time of the creation of this tutorial (October 2021), the recommended product to be used as SSH proxy is [VPS 200 G8](https://www.netcup.de/bestellen/produkt.php?produkt=2000). 
+Existing customers can add the product easily and quickly.
 
-# Step 2 - (Summary of Step)
-Short introduction.
+# Step 2 - Basic configuration of the server
+After provisioning of the server and the first login with the username `root` and the password sent by email, the first step is to update the basic configuration of the server.
 
-Start by...
+1. Change the root password by means of `passwd`.
+2. Import the current security updates with `apt-get update && apt-get upgrade -y`.
+3. It is recommended to set up an SSH key at this point and to disallow password login for the root user. These procedures are not part of this tutorial and as the later functionality requires root capability, the setup of an unprivileged user is omitted at this point.
 
-(Screenshot)
+# Step 3 - Configuration of SSH daemon
+SSH daemon usually listens on port 22. To make it accessible even from restricted networks, it is configured to listen also on ports 443 (HTTPS) and 80 (HTTP). These ports are usually less restricted or not restricted at all, so there is a good chance that they can be used to gain free access to the proxy and thus to the internet.
 
-Then...
+1. Open the file `/etc/ssh/sshd_config` in an editor like `vi` or `nano`.
+2. Search for the line `port 22`. It probably starts with a `#` to indicate that this is the basic configuration.
+3. Change the file to:
+   ```
+   port 22 
+   port 80 
+   port 443 
+   ```
+4. Save and exit the editor.
+5. Restart SSH daemon with `systemctl restart ssh`. The current session should remain active.
+6. Use `ssh -p 443 root@v11111111.quicksrv.de` to test if the configuration was set up successfully.
+   Please replace `v11111111.quicksrv.de` with your own hostname.
 
-(Screenshot)
+SSH daemon is now successfully configured and can be reached via ports 22, 80 and 443.
 
-Finally...
+# Step 4 - Use as SOCKS server
+To use Chrome or another browser in such a way that it handles all traffic through the SSH proxy, you use it as a SOCKS proxy. This way, you can show streaming services, for example, that you are actually located in Germany if the geolocation of your own IP doesn't work properly.
 
-(Screenshot)
+Technically, in this case, your own computer is the SOCKS proxy that uses SSH proxy for forwarding. Therefore, `localhost` is specified as the (SOCKS) proxy server (see figure below).
 
-## Step 2.1 - (Summary of Step)
-Add some code
+Start an SSH session on your own computer with the following command:
 
-## Step 2.2 - (Summary of Step)
-Add some more code
+`ssh -p 443 -D8080 -N root@v11111111.quicksrv.de`. Replace the example `v11111111.quicksrv.de` with the correct server name.
 
-# Step 3 - (Summary of Step) (Optional)
-If your tutorial includes a step that is not necessary to complete it, but can be helpful, please mark it (Optional).
+Then start Chrome in a second window with the following command:
 
-# Step N- (Summary of Step)
-Repeat the pattern all the way to the step, that finishes your tutorial.
+`google-chrome --proxy-server="socks5://localhost:8080" --host-resolver-rules="MAP * ~NOTFOUND , EXCLUDE localhost"`.
+
+This results in Chrome using the SOCKS proxy as nameserver for name resolution, which protects your privacy.
+
+![The SOCKS proxy can handle multiple ports simultaneously](images/socks.png)
+
+# Step 5 - Use as jump server
+To access other servers whose SSH daemon is bound only to port 22 (or another), use the command:
+
+`ssh -J root@v11111111.quicksrv.de:443 root@myserver.com`
+
+Replace our example `v11111111.quicksrv.de` with the correct proxy server name. Instead of `myserver.com` you must specify the server to which you want to connect through the proxy.
+
+![The jump host will forward a connection](images/jump.png)
 
 # Conclusion
-A summary what the user has done, suggesting different courses of action they can now take, probably link to tutorials that build from this one.
+SSH proxy can now be used. It is recommended to perform tests before productive use.
+
+![The SOCKS proxy can handle multiple ports simultaneously](images/socks.png)
 
 # License
 MIT
 
 # Contributor's Certificate of Origin
-Contributor's Certificate of Origin By making a contribution to this project, I certify that:
+By making a contribution to this project, I certify that:
 
  1) The contribution was created in whole or in part by me and I have the right to submit it under the license indicated in the file; or
 
@@ -72,4 +111,4 @@ Contributor's Certificate of Origin By making a contribution to this project, I 
 
  4) I understand and agree that this project and the contribution are public and that a record of the contribution (including all personal information I submit with it, including my sign-off) is maintained indefinitely and may be redistributed consistent with this project or the license(s) involved.
 
-Signed-off-by: (submitter's name and email address)
+Signed off by: Niki Hansche <mf-developing@hansche.de>
