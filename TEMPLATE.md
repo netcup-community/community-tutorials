@@ -62,7 +62,7 @@ A summary what the user has done, suggesting different courses of action they ca
 MIT
 
 # Contributor's Certificate of Origin
-Contributor's Certificate of Origin By making a contribution to this project, I certify that:
+By making a contribution to this project, I certify that:
 
  1) The contribution was created in whole or in part by me and I have the right to submit it under the license indicated in the file; or
 
