@@ -1,6 +1,7 @@
 ## netcup Community Tutorial Guidelines
 # General Criteria
-- Tutorials should be in English. 
+- Tutorials should be in English.
+   - To maintain high quality we preserve the right to edit files for better understanding without chancing the meaning of your tutorial.
 - Name the product you're using.
    - Whether it is Webhosting or a vServer you are using in your tutorial, please make sure to name it. (e.g.: Webhosting 4000)
 - Make sure your tutorials work on new servers.

@@ -6,19 +6,17 @@ jobs:
   send_mail:
     runs-on: ubuntu-latest
     steps:
-      - name: Get pull request number #️⃣
-        id: pull_request_number
-        run: |
-          PULL_REQUEST_NUMBER=${GITHUB_REF/refs\/pull\//}
-          PULL_REQUEST_NUMBER="${PULL_REQUEST_NUMBER//'/merge'/''}"
-          echo ::set-output name=content::$PULL_REQUEST_NUMBER
-
+      - name: Get PR Number
+        uses: jwalton/gh-find-current-pr@v1
+        id: findPr
+        with:
+          state: open
       - name: Create mail body 📝
         run: |
           MY_STRING=$(cat << EOF
           New Pull Request to Review on ${{ github.repository }}
 
-          https://github.com/${{ github.repository }}/pull/${{ steps.pull_request_number.outputs.content }}
+          https://github.com/${{ github.repository }}/pull/${{steps.findPr.outputs.pr}}
 
           EOF
           )
