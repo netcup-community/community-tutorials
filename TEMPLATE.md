@@ -1,6 +1,7 @@
 ---
 title: Setup and Usage of a Simple SSH Proxy
 description: Learn how to set up a simple SSH proxy and use it as jump host or SOCKS proxy.
+level: [beginner, intermediate, advanced] (leave appropriate level only)
 updated_at: 2021-10-21
 slug: ssh-proxy-setup-and-usage
 author_name: Niki Hansche
