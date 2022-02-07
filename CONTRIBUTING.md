@@ -1,5 +1,5 @@
 ## netcup Community Tutorial Guidelines
-# General Criteria
+# General Criteria 
 - Tutorials should be in English.
    - To maintain high quality we preserve the right to edit files for better understanding without chancing the meaning of your tutorial.
 - Name the product you're using.
