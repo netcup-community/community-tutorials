@@ -1,5 +1,5 @@
 ## netcup Community Tutorial Guidelines
-# General Criteria
+# General Criteria 
 - Tutorials should be in English.
    - To maintain high quality we preserve the right to edit files for better understanding without chancing the meaning of your tutorial.
 - Name the product you're using.
@@ -15,6 +15,11 @@
 - Be the original.
    - We will not accept tutorials that can be found anywhere else on the web, especially if not in context with netcup.
    - Make sure your tutorial is new to the collection. In case it's not, have a look if it would be a valid expansion of an existing tutorial. In case you found one, don't hesitate to reach out to us.
+- Let us and the community work their magic.
+   - After you create a pull request, don't keep editing your tutorial unless we specifically ask you to do so. Otherwise, the review process will take longer than necessary. If you forgot something, either we or the community will notice it and ask you to add the missing information. 
+- Submit one tutorial at a time. 
+   - To keep our review structured and efficient, you should only submit tutorials that contain one instruction at a time. Don't squeeze several tutorials into one file. You can always submit several separate tutorials.
+
 # How To
 1) Fork the project
 1) Add your tutorial folder: `mkdir -p community-tutorials/this-is-a-tutorial`  
