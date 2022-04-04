@@ -26,7 +26,7 @@ If your tutorial is accepted, you will receive an E-Mail (sent from our @anexia-
 ## Support
 If you need help with a specific tutorial, reach out to the contributor directly or join the netcup Forum for further questions, input and exchange.
 
-You can also request content in the [netcup Forum](https://forum.netcup.de/community-tutorials/community-tutorial-vorschl%C3%A4ge/).
+You can also request content in the [netcup Forum](https://forum.netcup.de/).
 
 If you need help with something else than a tutorial, please make use of our netcup-wiki* or join the netcup Forum.
 
