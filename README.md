@@ -20,7 +20,7 @@ If your tutorial is accepted, you will receive an E-Mail (sent from our @anexia-
 1) Vouchers are not valid for: Domains, SSL Certificates, Groupware and products with hourly billing.
 2) Vouchers can only be used for new orders.
 3) (Minimum) order value needs to be equal to or higher than the voucher is. Example: (Minimum) Order Value for a €20,- voucher is €21,- (Difference of €1,- is to be paid.)
-4) Vouchers are valid indefinitley.
+4) Vouchers are valid indefinitely.
 5) Vouchers are only valid for products in our regular product portfolio. (e.g.: currently vouchers can't be used to buy a netcup cup.)
 
 ## Support
