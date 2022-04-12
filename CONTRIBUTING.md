@@ -51,7 +51,7 @@ Now we're right in the heart of the tutorial where users will follow every singl
 The amount of steps will vary depending on how long or complicated your tutorial is.
 
 Remember: none of the users walked that road before, so make sure to really explain your steps well.
-Each of them should build on the previous one. It is important not to skip any steps, no matter how obvious or self-explanatory they may seem! (If you're not sure what we mean here, you might want to watch this fun video.)
+Each of them should build on the previous one. It is important not to skip any steps, no matter how obvious or self-explanatory they may seem! (If you're not sure what we mean here, you might want to watch this fun video: https://www.youtube.com/watch?v=Ct-lOOUqmyY)
 
 ## Conclusion
 Once all steps are completed you might want to add a short conclusion.
