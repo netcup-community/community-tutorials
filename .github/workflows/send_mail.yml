@@ -6,17 +6,12 @@ jobs:
   send_mail:
     runs-on: ubuntu-latest
     steps:
-      - name: Get PR Number
-        uses: jwalton/gh-find-current-pr@v1
-        id: findPr
-        with:
-          state: open
       - name: Create mail body 📝
         run: |
           MY_STRING=$(cat << EOF
           New Pull Request to Review on ${{ github.repository }}
 
-          https://github.com/${{ github.repository }}/pull/${{steps.findPr.outputs.pr}}
+          https://github.com/${{ github.repository }}/pull/${{github.event.number}}
 
           EOF
           )
