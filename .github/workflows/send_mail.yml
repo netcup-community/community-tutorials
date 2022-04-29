@@ -6,17 +6,14 @@ jobs:
   send_mail:
     runs-on: ubuntu-latest
     steps:
-      - name: Get PR Number
-        uses: jwalton/gh-find-current-pr@v1
-        id: findPr
-        with:
-          state: open
+      - uses: kceb/pull-request-url-action@v1
+        id: pr-url
       - name: Create mail body 📝
         run: |
           MY_STRING=$(cat << EOF
           New Pull Request to Review on ${{ github.repository }}
 
-          https://github.com/${{ github.repository }}/pull/${{steps.findPr.outputs.pr}}
+          ${{ steps.pr-url.outputs.url }}
 
           EOF
           )
@@ -25,7 +22,6 @@ jobs:
           MY_STRING="${MY_STRING//$'\r'/'%0D'}"
           echo "::set-output name=content::$MY_STRING"
         id: mail_body
-
       - name: Send mail 📧
         uses: dawidd6/action-send-mail@v3
         with:
