@@ -1,14 +1,14 @@
 # netcup Community Tutorials
-Community contributed tutorials about what can be done with netcup products and services.
+Community-contributed tutorials about what can be done with netcup products and services.
 
 ## Contribution Guidelines
 Please make sure to follow the [Contribution Guidelines](https://github.com/netcup-community/community-tutorials/blob/main/CONTRIBUTING.md) if you want to contribute a tutorial.
 Once done, open a Pull Request. A Repository Maintainer will review your tutorial and either accept it or get back to you with feedback.
 
 ## Rewards
- If your tutorial is accepted, you will receive an E-Mail (sent from our @anexia-it.com addresses) to the address you provide in your tutorial, asking for your netcup customer-ID in order to process your reward of €60,- in the form of netcup vouchers, exclusively for published tutorials.
+ If your tutorial is accepted, you will receive an email (sent from our @anexia-it.com addresses) to the address you provide in your tutorial asking for your netcup customer-ID in order to process your reward of €60,- in the form of netcup vouchers, exclusively for published tutorials.
 
-### Details to vouchers
+### Details about vouchers
 1) Vouchers are not valid for: Domains, SSL Certificates, Groupware and products with hourly billing.
 2) Vouchers can only be used for new orders.
 3) (Minimum) order value needs to be equal to or higher than the voucher is. Example: (Minimum) Order Value for a €20,- voucher is €21,- (Difference of €1,- is to be paid.)
