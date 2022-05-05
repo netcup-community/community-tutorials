@@ -1,15 +1,15 @@
 ## netcup Community Tutorial Guidelines
-# General Criteria 
+# General Criteria
 - Tutorials should be in English.
-   - To maintain high quality we preserve the right to edit files for better understanding without chancing the meaning of your tutorial.
+   - To maintain high quality we preserve the right to edit files for better understanding without changing the meaning of your tutorial.
 - Name the product you're using.
    - Whether it is Webhosting or a vServer you are using in your tutorial, please make sure to name it. (e.g.: Webhosting 4000)
 - Make sure your tutorials work on new servers.
-   - If someone just ordered a new server, they should not first have to install or configure anything, except it is explained in your tutorial. In this case, make sure there is already a tutorial explaining that and link to the corresponding tutorial at the beginning of yous.
+   - If someone has just ordered a new server, they should not have to install or configure anything first, except it is explained in your tutorial. In that case, make sure there is already a tutorial that explains it and link to it at the beginning of your tutorial.
 - Write in a structured, easy to follow manner.
    - Since your content will be read by users with a wide range of experience, make sure beginners can still follow.
    - If you use acronyms, write them out the first time you use them.
-   - If you use a word, that probably not everybody understands, explain it. Or, use a different easier to understand word or phrase.
+   - If you use a word that not everyone is likely to understand, explain it. Or use another word or phrase that is easier to understand.
    - Don´t skip steps. Some might seem obvious or self-explanatory to you, but aren't to others.
    - Don´t overdo insider jokes. (Looking over to you, dear "Duck-Community". :wink:)
 - Be the original.
@@ -29,12 +29,12 @@
 
 I have read and understood the Contributor's Certificate of Origin at the end of the [template](https://github.com/netcup-community/community-tutorials/blob/main/TEMPLATE.md) and I hereby certify that I meet the contribution criteria described in it. 
 
-Signed-off-by: (Submitter´s name and email address)
+Signed off by: (Submitter´s name and email address)
 
 If your tutorial is accepted, you will receive an email from our netcup Community Team asking for your netcup Customer-ID, so the reward can be processed.
 
 # Structure
-All of your Tutorials should have the same basic structure:
+All of your tutorials should have the same basic structure:
 
 - Title
 - Introduction
@@ -74,9 +74,8 @@ For all of this we provided a template for you. See https://github.com/netcup-co
 It includes:
 
 - a basic layout for your tutorial,
-- some examples of formatting
+- some examples of formatting,
 - tips and tricks for setting everything up.
  
 # Submissions
-You got a tutorial that meets the criteria above, and would be useful to share? Awesome! Please reach out to us via our GitHub account. 
-
+You got a tutorial that meets the criteria above and would be useful to share? Awesome! Please reach out to us via our GitHub account. 
