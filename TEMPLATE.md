@@ -4,7 +4,7 @@ description: Learn how to set up a simple SSH proxy and use it as jump host or S
 level: [beginner, intermediate, advanced] (leave appropriate level only)
 updated_at: 2021-10-21
 slug: ssh-proxy-setup-and-usage
-author_name: Niki Hansche
+author_name: Author Name
 author_url: -
 author_image: -
 author_bio: -
@@ -112,4 +112,4 @@ By making a contribution to this project, I certify that:
 
  4) I understand and agree that this project and the contribution are public and that a record of the contribution (including all personal information I submit with it, including my sign-off) is maintained indefinitely and may be redistributed consistent with this project or the license(s) involved.
 
-Signed off by: Niki Hansche <mf-developing@hansche.de>
+Signed off by: Author Name <AuthorEmail>
