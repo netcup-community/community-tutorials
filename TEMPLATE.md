@@ -47,7 +47,7 @@ After provisioning of the server and the first login with the username `root` an
 
 1. Change the root password by means of `passwd`.
 2. Import the current security updates with `apt-get update && apt-get upgrade -y`.
-3. It is recommended to set up an SSH key at this point and to disallow password login for the root user. These procedures are not part of this tutorial and as the later functionality requires root capability, the setup of an unprivileged user is omitted at this point.
+3. It is recommended to set up an SSH key at this point and to disallow password login for the root user. These procedures are not part of this tutorial and as the latter functionality requires root capability, the setup of an unprivileged user is omitted at this point.
 
 # Step 3 - Configuration of SSH daemon
 SSH daemon usually listens on port 22. To make it accessible even from restricted networks, it is configured to listen also on ports 443 (HTTPS) and 80 (HTTP). These ports are usually less restricted or not restricted at all, so there is a good chance that they can be used to gain free access to the proxy and thus to the internet.
