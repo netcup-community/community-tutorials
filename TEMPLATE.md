@@ -99,7 +99,7 @@ SSH proxy can now be used. It is recommended to perform tests before productive 
 ![The SOCKS proxy can handle multiple ports simultaneously](images/socks.png)
 
 # License
-[MIT] (https://github.com/netcup-community/community-tutorials/blob/main/LICENSE)
+[MIT](https://github.com/netcup-community/community-tutorials/blob/main/LICENSE)
 
 Copyright (c) 2021 netcup
 
