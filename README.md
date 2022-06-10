@@ -5,6 +5,8 @@ Community-contributed tutorials about what can be done with netcup products and 
 Please make sure to follow the [Contribution Guidelines](https://github.com/netcup-community/community-tutorials/blob/main/CONTRIBUTING.md) if you want to contribute a tutorial.
 Once done, open a Pull Request. A Repository Maintainer will review your tutorial and either accept it or get back to you with feedback.
 
+If you already have forked the community-tutorials repository, please make sure to fetch the upstream on a regular basis.
+
 ## Rewards
  If your tutorial is accepted, you will receive an email (sent from our @anexia-it.com addresses) to the address you provide in your tutorial asking for your netcup customer-ID in order to process your reward of €60,- in the form of netcup vouchers, exclusively for published tutorials.
 
