@@ -91,12 +91,12 @@ To access other servers whose SSH daemon is bound only to port 22 (or another), 
 
 Replace our example `v11111111.quicksrv.de` with the correct proxy server name. Instead of `myserver.com` you must specify the server to which you want to connect through the proxy.
 
-![The jump host will forward a connection](images/jump.png)
+![The jump host will forward a connection](community-tutorials/setup-and-use-sshproxy/images/jump.png)
 
 # Conclusion
 SSH proxy can now be used. It is recommended to perform tests before productive use.
 
-![The SOCKS proxy can handle multiple ports simultaneously](images/socks.png)
+![The SOCKS proxy can handle multiple ports simultaneously](community-tutorials/setup-and-use-sshproxy/images/socks.png)
 
 # License
 MIT
