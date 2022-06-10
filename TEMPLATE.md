@@ -82,7 +82,7 @@ Then start Chrome in a second window with the following command:
 
 This results in Chrome using the SOCKS proxy as nameserver for name resolution, which protects your privacy.
 
-![The SOCKS proxy can handle multiple ports simultaneously](images/socks.png)
+![The SOCKS proxy can handle multiple ports simultaneously](community-tutorials/setup-and-use-sshproxy/images/socks.png)
 
 # Step 5 - Use as jump server
 To access other servers whose SSH daemon is bound only to port 22 (or another), use the command:
