@@ -9,7 +9,7 @@ author_url: -
 author_image: -
 author_bio: -
 tags: [shell, ssh, linux] 
-netcup_product_url: https://www.netcup.de/bestellen/produkt.php?produkt=2000
+netcup_product_url: https://www.netcup.de/bestellen/produkt.php?produkt=2623
 language: en
 available_languages: [de, en]
 ---
