@@ -26,16 +26,14 @@
 
 # How To
 1) Fork the project
-1) Add your tutorial folder: `mkdir -p community-tutorials/this-is-a-tutorial`  
-1) Add the templates: `cat TEMPLATE.md > community-tutorials/this-is-a-tutorial/01-en.md` 
-1) Write the content (using the [template](https://github.com/netcup-community/community-tutorials/blob/main/TEMPLATE.md)) 
-1) Create a pull request and include the following in your request:
+2) Add your tutorial folder: `mkdir -p community-tutorials/this-is-a-tutorial`  
+3) Add the templates: `cat TEMPLATE.md > community-tutorials/this-is-a-tutorial/01-en.md` 
+4) Write the content (using the [template](https://github.com/netcup-community/community-tutorials/blob/main/TEMPLATE.md)) 
+5) Create a pull request and include the following in your request:
 
 I have read and understood the Contributor's Certificate of Origin at the end of the [template](https://github.com/netcup-community/community-tutorials/blob/main/TEMPLATE.md) and I hereby certify that I meet the contribution criteria described in it. 
 
-Signed off by: (Submitter´s name and email address)
-
-If your tutorial is accepted, you will receive an email from our netcup Community Team asking for your netcup Customer-ID, so the reward can be processed.
+Make sure that you have your email address visible on your Github account. If your tutorial is accepted, you will receive an email from our netcup Community Team asking for your netcup Customer-ID, so the reward can be processed.
 
 # Structure
 All of your tutorials should have the same basic structure:
