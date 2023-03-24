@@ -6,8 +6,8 @@ updated_at: 2021-10-21
 slug: ssh-proxy-setup-and-usage
 author_name: Author Name
 author_url: add a link to your Github profile here
-author_image: 
-author_bio: 
+author_image:
+author_bio:
 tags: [shell, ssh, linux] 
 netcup_product_url: https://www.netcup.eu/bestellen/produkt.php?produkt=2902
 language: en
