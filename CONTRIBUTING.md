@@ -3,22 +3,22 @@
 # General Criteria 
 - Tutorials should be delivered ideally both in English and German, while English is the default language.
    - In the rare circumstance, that you are unable to provide a German translation, we may be able to translate the tutorial internally.
-   - To maintain high quality we preserve the right to edit files for better understanding without chancing the meaning of your tutorial.
+   - To maintain high quality we preserve the right to edit files for better understanding without changing the meaning of your tutorial.
 - Name the product you're using.
    - Whether it is Webhosting or a vServer you are using in your tutorial, please make sure to name it. (e.g.: Webhosting 4000)
 - Make sure your tutorials work on new servers.
-   - If someone has just ordered a new server, they should not have to install or configure anything first, except it is explained in your tutorial. In that case, make sure there is already a tutorial that explains it and link to it at the beginning of your tutorial.
+   - If someone has just ordered a new server, they should not have to install or configure anything first, unless it is explained in your tutorial. In that case, make sure there is already a tutorial that explains it and link to it at the beginning of your tutorial.
 - Write in a structured, easy to follow manner.
    - Since your content will be read by users with a wide range of experience, make sure beginners can still follow.
    - If you use acronyms, write them out the first time you use them.
    - If you use a word that not everyone is likely to understand, explain it. Or use another word or phrase that is easier to understand.
-   - Don´t skip steps. Some might seem obvious or self-explanatory to you, but aren't to others.
-   - Don´t overdo insider jokes. (Looking over to you, dear "Duck-Community". :wink:)
+   - Don't skip steps. Some might seem obvious or self-explanatory to you, but aren't to others.
+   - Don't overdo insider jokes. (Looking over to you, dear "Duck-Community". :wink:)
 - Be the original.
    - We will not accept tutorials that can be found anywhere else on the web, especially if not in context with netcup.
    - Make sure your tutorial is new to the collection. In case it's not, have a look if it would be a valid expansion of an existing tutorial. In case you found one, don't hesitate to reach out to us.
 - Be up to date.
-   - If you already have forked the community-tutorials repository, please make sure to fetch the upstream on a regular basis.
+   - If you have already forked the community-tutorials repository, please make sure to fetch the upstream on a regular basis.
 - Let us and the community work their magic.
    - After you create a pull request, don't keep editing your tutorial unless we specifically ask you to do so. Otherwise, the review process will take longer than necessary. If you forgot something, either we or the community will notice it and ask you to add the missing information. 
 - Submit one tutorial at a time. 
