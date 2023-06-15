@@ -1,6 +1,8 @@
 ## netcup Community Tutorial Guidelines
 
 # General Criteria 
+- Please limit yourself to one tutorial per pull request.
+   - It is permitted and encouraged to include both a German and English version of the tutorial in one pull request, however for different tutorials, use separate pull requests.
 - Tutorials should be delivered ideally both in English and German, while English is the default language.
    - In the rare circumstance, that you are unable to provide a German translation, we may be able to translate the tutorial internally.
    - To maintain high quality we preserve the right to edit files for better understanding without changing the meaning of your tutorial.
