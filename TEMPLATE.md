@@ -1,15 +1,15 @@
 ---
 title: Setup and Usage of a Simple SSH Proxy
 description: Learn how to set up a simple SSH proxy and use it as jump host or SOCKS proxy.
-level: [beginner, intermediate, advanced] (leave appropriate level only)
+level: [beginner, intermediate, advanced]
 updated_at: 2021-10-21
 slug: ssh-proxy-setup-and-usage
 author_name: Author Name
-author_url: -
-author_image: -
-author_bio: -
+author_url: add a link to your Github profile here
+author_image:
+author_bio:
 tags: [shell, ssh, linux] 
-netcup_product_url: https://www.netcup.de/bestellen/produkt.php?produkt=2000
+netcup_product_url: https://www.netcup.eu/bestellen/produkt.php?produkt=2902
 language: en
 available_languages: [de, en]
 ---
@@ -99,6 +99,7 @@ SSH proxy can now be used. It is recommended to perform tests before productive 
 ![The SOCKS proxy can handle multiple ports simultaneously](community-tutorials/setup-and-use-sshproxy/images/socks.png)
 
 # Licence
+
 [MIT](https://github.com/netcup-community/community-tutorials/blob/main/LICENSE)
 
 Copyright (c) 2021 netcup
@@ -119,5 +120,3 @@ By making a contribution to this project, I certify that:
  3) The contribution was provided directly to me by some other person who certified (a), (b) or (c) and I have not modified it.
 
  4) I understand and agree that this project and the contribution are public and that a record of the contribution (including all personal information I submit with it, including my sign-off) is maintained indefinitely and may be redistributed consistent with this project or the licence(s) involved.
-
-Signed off by: Author Name <AuthorEmail>
