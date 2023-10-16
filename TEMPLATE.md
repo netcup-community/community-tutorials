@@ -50,7 +50,11 @@ After provisioning of the server and the first login with the username `root` an
 3. It is recommended to set up an SSH key at this point and to disallow password login for the root user. These procedures are not part of this tutorial and as the latter functionality requires root capability, the setup of an unprivileged user is omitted at this point.
 
 # Step 3 - Configuration of SSH daemon
-SSH daemon usually listens on port 22. To make it accessible even from restricted networks, it is configured to listen also on ports 443 (HTTPS) and 80 (HTTP). These ports are usually less restricted or not restricted at all, so there is a good chance that they can be used to gain free access to the proxy and thus to the internet.
+
+> **Info**
+> Note that the SSH daemon usually listens on port 22.
+
+To make it accessible even from restricted networks, it is configured to listen also on ports 443 (HTTPS) and 80 (HTTP). These ports are usually less restricted or not restricted at all, so there is a good chance that they can be used to gain free access to the proxy and thus to the internet.
 
 1. Open the file `/etc/ssh/sshd_config` in an editor like `vi` or `nano`.
 2. Search for the line `port 22`. It probably starts with a `#` to indicate that this is the basic configuration.
