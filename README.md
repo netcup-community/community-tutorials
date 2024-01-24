@@ -20,7 +20,7 @@ If you already have forked the community-tutorials repository, please make sure 
 ## Support
 If you need help with a specific tutorial, reach out to the contributor directly or join the netcup Forum for further questions, input and exchange.
 
-If you need help with something else than a tutorial, please make use of our netcup-wiki* or join the netcup Forum.
+If you need help with something else than a tutorial, please make use of our HelpCenter (helpcenter.netcup.com) or join the netcup Forum (forum.netcup.de).
 
 ## Authors and acknowledgement
 We want to thank our community for making this possible.
@@ -28,7 +28,7 @@ We want to thank our community for making this possible.
 ## License
 MIT
 
-Copyright (c) 2021 netcup
+Copyright (c) 2024 netcup
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -47,7 +47,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-## Further Information
-*The current netcup-wiki is being revised and updated. You want to support us with your contributions and get rewarded?
-For more information, please stay tuned in the [netcup Forum](https://forum.netcup.de/).
