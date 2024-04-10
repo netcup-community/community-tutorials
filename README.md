@@ -20,7 +20,7 @@ If you already have forked the community-tutorials repository, please make sure 
 ## Support
 If you need help with a specific tutorial, reach out to the contributor directly or join the netcup Forum for further questions, input and exchange.
 
-If you need help with something else than a tutorial, please make use of our [Help Center](helpcenter.netcup.com) or join the [netcup Forum](forum.netcup.de).
+If you need help with something else than a tutorial, please make use of our [Help Center](https://helpcenter.netcup.com) or join the [netcup Forum](https://forum.netcup.de).
 
 ## Authors and acknowledgement
 We want to thank our community for making this possible.
